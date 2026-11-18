@@ -63,6 +63,14 @@ class EntradaVIP(Entrada):
     def __str__(self):
         return f'Entrada VIP para {self.concierto.artista} - {self.get_precio_total()} €'
 
+class EntradaSuperCara(Entrada):
+    def __init__(self, concierto):
+        super().__init__(concierto)
+    def get_precio_total(self):
+        return self.concierto.precio_base * 2
+    def __str__(self):
+        return f'Entrada super cara para {self.concierto.artista} - {self.get_precio_total()}€'
+
 
 # Concierto con sus datos y sus entradas vendidas
 class Concierto:
